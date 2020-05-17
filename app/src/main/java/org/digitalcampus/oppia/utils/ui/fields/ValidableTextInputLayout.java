@@ -2,16 +2,13 @@ package org.digitalcampus.oppia.utils.ui.fields;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.text.Html;
-import android.text.Spanned;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
-import com.google.android.material.textfield.TextInputLayout;
-
 import org.digitalcampus.mobile.learning.R;
+import org.digitalcampus.oppia.utils.ui.CustomTextInputLayout;
 
-public class ValidableTextInputLayout extends TextInputLayout implements ValidableField{
+public class ValidableTextInputLayout extends CustomTextInputLayout implements ValidableField{
 
     private static final String REQUIRED_SPANNED_HINT = "<string>%s <span style=\"color:red;\">*</span></string>";
 
@@ -51,11 +48,13 @@ public class ValidableTextInputLayout extends TextInputLayout implements Validab
     }
 
     public void initialize(){
-        if (required && this.getEditText() != null){
-            String html = String.format(REQUIRED_SPANNED_HINT, this.getHint());
-            Spanned requiredHint = Html.fromHtml(html);
-            this.setHint(requiredHint);
-        }
+//        if (required && this.getEditText() != null){
+//            String html = String.format(REQUIRED_SPANNED_HINT, this.getHint());
+//            Spanned requiredHint = Html.fromHtml(html);
+//            this.setHint(requiredHint);
+//        }
+
+//        setHintTextColor();
     }
 
     public boolean validate(){

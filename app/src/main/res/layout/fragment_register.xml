@@ -112,7 +112,6 @@
                     app:required="true">
 
                     <EditText
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/register_form_firstname_title"
