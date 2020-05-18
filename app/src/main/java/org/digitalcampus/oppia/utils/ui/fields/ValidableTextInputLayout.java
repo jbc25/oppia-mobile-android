@@ -2,18 +2,22 @@ package org.digitalcampus.oppia.utils.ui.fields;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.EditText;
 
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.textfield.TextInputLayout;
+
 import org.digitalcampus.mobile.learning.R;
-import org.digitalcampus.oppia.utils.ui.CustomTextInputLayout;
 
-public class ValidableTextInputLayout extends CustomTextInputLayout implements ValidableField{
-
-    private static final String REQUIRED_SPANNED_HINT = "<string>%s <span style=\"color:red;\">*</span></string>";
+public class ValidableTextInputLayout extends TextInputLayout implements ValidableField {
 
     private boolean required = false;
     private boolean cantContainSpaces = false;
+    private int customTextColorHint;
 
     public ValidableTextInputLayout(Context context) {
         super(context);
@@ -37,6 +41,7 @@ public class ValidableTextInputLayout extends CustomTextInputLayout implements V
         try {
             required = styledAttrs.getBoolean(R.styleable.ValidableTextInputLayout_required, false);
             cantContainSpaces = styledAttrs.getBoolean(R.styleable.ValidableTextInputLayout_cantContainSpaces, false);
+            customTextColorHint = styledAttrs.getResourceId(R.styleable.ValidableTextInputLayout_customTextColorHint, 0);
         } finally {
             styledAttrs.recycle();
         }
@@ -48,13 +53,40 @@ public class ValidableTextInputLayout extends CustomTextInputLayout implements V
     }
 
     public void initialize(){
-//        if (required && this.getEditText() != null){
-//            String html = String.format(REQUIRED_SPANNED_HINT, this.getHint());
-//            Spanned requiredHint = Html.fromHtml(html);
-//            this.setHint(requiredHint);
-//        }
 
-//        setHintTextColor();
+        initializeCustomTextColorHint();
+    }
+
+    private void initializeCustomTextColorHint() {
+
+        if (customTextColorHint != 0) {
+
+            setDefaultHintTextColor(ContextCompat.getColorStateList(getContext(), customTextColorHint));
+
+            addOnEditTextAttachedListener(new OnEditTextAttachedListener() {
+                @Override
+                public void onEditTextAttached(TextInputLayout textInputLayout) {
+
+                    getEditText().setFocusable(true);
+                    getEditText().setFocusableInTouchMode(true);
+
+                    getEditText().setOnFocusChangeListener(new OnFocusChangeListener() {
+                        @Override
+                        public void onFocusChange(View v, boolean hasFocus) {
+
+                            boolean selected = !TextUtils.isEmpty(getEditText().getText().toString());
+                            ValidableTextInputLayout.this.setSelected(selected);
+
+                        }
+                    });
+                }
+            });
+        }
+    }
+
+    public void setCustomtHintTextColor(int color) {
+        this.customTextColorHint = color;
+        initializeCustomTextColorHint();
     }
 
     public boolean validate(){
@@ -100,7 +132,6 @@ public class ValidableTextInputLayout extends CustomTextInputLayout implements V
             input.setText(text);
         }
     }
-
 
 
 }

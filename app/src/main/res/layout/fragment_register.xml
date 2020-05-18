@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:fillViewport="true"
-                android:layout_height="wrap_content"
-                android:gravity="center">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:gravity="center">
 
     <ScrollView
         android:id="@+id/register_form"
@@ -17,8 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView24"
@@ -31,7 +30,7 @@
                 android:paddingBottom="@dimen/padding_medium_2"
                 android:text="@string/tab_title_register"
                 android:textAppearance="@style/SectionHeader"
-                android:textColor="@color/text_light"/>
+                android:textColor="@color/text_light" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,10 +41,9 @@
 
                 <org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout
                     android:id="@+id/register_form_username_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:required="true"
-                    app:cantContainSpaces="true">
+                    style="@style/FieldRegisterForm"
+                    app:cantContainSpaces="true"
+                    app:required="true">
 
                     <EditText
                         android:id="@+id/register_form_username_edittext"
@@ -60,55 +58,50 @@
 
                 <org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout
                     android:id="@+id/register_form_password_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:required="true"
-                    app:cantContainSpaces="true">
+                    style="@style/FieldRegisterForm"
+                    app:cantContainSpaces="true"
+                    app:required="true">
 
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/register_form_password_title"
                         android:inputType="textPassword"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
                 </org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout>
 
                 <org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout
-                    android:layout_width="match_parent"
                     android:id="@+id/register_form_password_again_field"
-                    android:layout_height="wrap_content"
-                    app:required="true"
-                    app:cantContainSpaces="true">
+                    style="@style/FieldRegisterForm"
+                    app:cantContainSpaces="true"
+                    app:required="true">
 
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/register_form_password_again_title"
                         android:inputType="textPassword"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
                 </org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout>
 
                 <org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout
                     android:id="@+id/register_form_email_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:required="true"
-                    app:cantContainSpaces="true">
+                    style="@style/FieldRegisterForm"
+                    app:cantContainSpaces="true"
+                    app:required="true">
 
                     <EditText
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/register_form_email_title"
                         android:inputType="textEmailAddress"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
 
                 </org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout>
 
                 <org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout
                     android:id="@+id/register_form_firstname_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/FieldRegisterForm"
                     app:required="true">
 
                     <EditText
@@ -116,66 +109,59 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/register_form_firstname_title"
                         android:inputType="text"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
                 </org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout>
 
                 <org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout
                     android:id="@+id/register_form_lastname_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/FieldRegisterForm"
                     app:required="true">
 
                     <EditText
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/register_form_lastname_title"
                         android:inputType="text"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
                 </org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout>
 
 
                 <org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout
                     android:id="@+id/register_form_phoneno_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/FieldRegisterForm"
                     app:required="true">
 
                     <EditText
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/register_form_phoneno_title"
                         android:inputType="phone"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
                 </org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout>
 
                 <org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout
                     android:id="@+id/register_form_organisation_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    style="@style/FieldRegisterForm">
 
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/register_form_organisation_title"
                         android:inputType="text"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
                 </org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout>
 
 
                 <org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout
                     android:id="@+id/register_form_jobtitle_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/FieldRegisterForm">
 
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/register_form_jobtitle_title"
                         android:inputType="text"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
 
                 </org.digitalcampus.oppia.utils.ui.fields.ValidableTextInputLayout>
 
@@ -218,16 +204,16 @@
                 style="@style/SubheaderText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autoText="true"
+                android:inputType="textAutoCorrect"
                 android:gravity="center"
-                android:text="@string/register_account_already"/>
+                android:text="@string/register_account_already" />
 
             <Button
                 android:id="@+id/action_login_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:text="@string/tab_title_login"/>
+                android:text="@string/tab_title_login" />
         </LinearLayout>
 
         <Button
@@ -237,7 +223,7 @@
             android:layout_gravity="bottom|center_horizontal"
             android:layout_weight="2"
             android:text="@string/register_btn_text"
-            android:theme="@style/PrimaryButton"/>
+            android:theme="@style/PrimaryButton" />
 
     </LinearLayout>
 

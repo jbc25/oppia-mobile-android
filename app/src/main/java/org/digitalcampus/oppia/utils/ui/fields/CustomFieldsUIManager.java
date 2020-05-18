@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import androidx.appcompat.widget.SwitchCompat;
+
 import org.digitalcampus.mobile.learning.R;
 import org.digitalcampus.oppia.model.CustomField;
 import org.digitalcampus.oppia.model.CustomValue;
@@ -21,8 +23,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import androidx.appcompat.widget.SwitchCompat;
 
 public class CustomFieldsUIManager {
 
@@ -129,6 +129,7 @@ public class CustomFieldsUIManager {
         }
         ValidableTextInputLayout input = new ValidableTextInputLayout(ctx);
         input.addView(editText, getDefaultLayoutParams());
+        input.setCustomtHintTextColor(R.color.form_label);
         addAndConfigureInput(field, input);
         return input;
     }
